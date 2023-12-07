@@ -1,3 +1,69 @@
 h1 {
     color: red;
 }
+
+body {
+    background-image: url("assets/backg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0%;
+    
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 2rem);
+} /* Align items horizontally*/
+
+/* */
+/* Primary Header */
+
+.logo img {
+  margin: 2rem; /* Margin around the logo */
+  max-width: 50px; /* Property sets the maxium width of the image to 50 px's - original image is much larger */
+  height: auto /* This property makes sure the height of the image adjusts automatically to stop it from looking distorted when re-sizing */
+  ;
+}
+
+.primary-header {
+    align-items: center;  /* Aligns the items centre of logo */
+    justify-content: space-between;  /* Moves to the right side */
+}
+
+.nav-bar {
+    list-style-type: none; /* Default reset*/
+    margin: 0;
+    padding: 0;
+
+    background: hsl(0 0% 100% / 0.075);/* HSL representation: hsl(hue, saturation, lightness) first digit is color 0 because doesn't matter, saturattion 0% and 100% for white 0.1 makes it transparent*/
+    backdrop-filter: blur(2rem);
+
+}
+
+/* Links */
+.nav-bar a {
+    text-decoration: none;
+
+}
+
+/* This reinenforces that any changes or adds to teh code will still remain hidden to a screen reader*/
+.nav-bar a > [aria-hidden="true"] {
+    font-weight: 700;
+    margin-inline-end: 0.5rem; /* Logical property left and right - if the lingual direction changes it goes in the right direction */
+}
+
+/* Styles are applied when view point width is 35rem or narrower - style for small screen i.e. mobile */
+/* rem is root em - one rem is equivolent to teh default font size usually 16px */
+@media (max-width: 35rem) {
+    .nav-bar {
+        --gap: 3rem;
+        flex-direction: column; /* Stacks onj top of each other in media range */
+        inset: 0 0 0 70px; /*Logical property short hand for margin top, bottom, left and right  */
+        padding: min(30vh, 10rem) 2rem; /* This min function will always choose the minimum value - view height is more than 10 rem, it will show 10rem and vice versa - more dynamic */
+        position: fixed; /* Fix nav bar when scrolling*/
+        
+        
+    }
+}
