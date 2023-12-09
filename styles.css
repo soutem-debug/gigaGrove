@@ -192,7 +192,6 @@ body {
 }
 
 
-
 /* Grid container for every page */
 
 
@@ -266,12 +265,32 @@ body {
 }
 
 
-/* Page specific items */
+/* Page specific background images*/
+
+
+
+body {
+    background-position: bottom center;
+    background-size: cover
+}
 
 /* Home Page */
 
+.home {
+    background-image: url(assets/images/background-mobile.png);
+    ;
+}
 
+@media (min-width: 35rem) {
+    .home {
+        background-image: url(assets/images/background-tablet.png)
+    }
 
+}
 
+@media (min-width: 45rem) {
+    .home {
+        background-image: url(assets/images/background-desktop.png)
+    }
 
-
+}
