@@ -1,3 +1,10 @@
+/* Custome colours */
+:root {
+    --clr-dark: 230 35% 7%;
+    --clr-light: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+}
+
 /* Utility classes */
 
 /* Font styles */
@@ -66,29 +73,35 @@
 
 /* Colours */
 
-.text-white {
-    color: white; 
-}
+/* colors */
 
-.text-dark {
-    color: black;
-}
+.bg-dark { background-color: hsl( var(--clr-dark) );}
+.bg-accent { background-color: hsl( var(--clr-light) );}
+.bg-white { background-color: hsl( var(--clr-white) );}
+
+.text-dark { color: hsl( var(--clr-dark) );}
+.text-accent { color: hsl( var(--clr-light) );}
+.text-white { color: hsl( var(--clr-white) );}
 
 
-/* Hover features */
+.sr-only {
+    position: absolute; 
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px; 
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 
-.underline-indicators > :active,
-.underline-indicators {
-    color: antiquewhite;
-    text-decoration: underline;
-    
-}
+
+
 
 /* Body settings */
 
 body {
-    background-color: black;
-    background-size: cover;
+    
     background-position: center;
     background-repeat: no-repeat;
     display: grid;
@@ -108,32 +121,7 @@ body {
     gap: var(--gap, 1rem);
 }
 
-/* */
 
-
-/* Primary Header */
-
-.logo img {
-  margin: 1rem; /* Margin around the logo */
-  max-width: 50px; /* Property sets the maxium width of the image to 50 px's - original image is much larger */
-  height: auto /* This property makes sure the height of the image adjusts automatically to stop it from looking distorted when re-sizing */
-  ;
-}
-
-.primary-header {
-    align-items: center;  /* Aligns the items centre of logo */
-    justify-content: space-between;  /* Moves to the right side */
-}
-
-.nav-bar {
-    list-style-type: none; /* Default reset*/
-    margin: 0;
-    padding: 0;
-
-    background: hsl(0 0% 100% / 0.075);/* HSL representation: hsl(hue, saturation, lightness) first digit is color 0 because doesn't matter, saturattion 0% and 100% for white 0.1 makes it transparent*/
-    backdrop-filter: blur(2rem);
-
-}
 
 /* Links */
 .nav-bar a {
@@ -142,27 +130,8 @@ body {
 }
 
 
-/* Accessibility*/
-
-.nav-bar a > [aria-hidden="true"] {
-    font-weight: 700;
-    margin-inline-end: 0.5rem; /* Logical property left and right - if the lingual direction changes it goes in the right direction */
-}
-
-
 /* Responsive design for tablet and mobile*/
 
-
-@media (max-width: 35rem) {
-    .nav-bar {
-        --gap: 3rem;
-        flex-direction: column; /* Stacks onj top of each other in media range */
-        inset: 0 0 0 70px; /*Logical property short hand for margin top, bottom, left and right  */
-        padding: min(30vh, 10rem) 2rem; /* This min function will always choose the minimum value - view height is more than 10 rem, it will show 10rem and vice versa - more dynamic */
-        position: fixed; /* Fix nav bar when scrolling*/
-        
-    }
-}
 
 @media (min-width: 45rem) {
     .grid-container{
@@ -191,6 +160,129 @@ body {
 
 }
 
+
+/* Components - call to actions's */
+
+.rounded-button {
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    display: inline-grid;
+    margin-bottom: 50px;
+    padding: 0 2em;
+    place-items: center;    
+    position: relative;
+    text-decoration: none;
+    z-index: 1; /* will be positioned in front */
+    
+}
+
+/* .rounded-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: hsl( var(--clr-white) / .15);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+    
+}
+ 
+.rounded-button:hover::after,
+.rounded-button:focus::after {
+    opacity: 1;
+    transform: scale(1.5);
+} */
+
+/* Primary Header */
+
+.logo img {
+    margin: 0.5rem; /* Margin around the logo */
+    max-width: 50px; /* Property sets the maxium width of the image to 50 px's - original image is much larger */
+    height: auto;
+  }
+  
+  
+  
+.primary-header {
+    align-items: center;  /* Aligns the items centre of logo */
+    justify-content: space-between;  /* Moves to the right side */
+}
+
+.mobile-nav-toggle{
+    display: none;
+}
+
+.nav-bar {
+    list-style-type: none; /* Default reset*/
+    margin: 0;
+    padding: 0;
+
+    background: hsl(0 0% 100% / 0.075);/* HSL representation: hsl(hue, saturation, lightness) first digit is color 0 because doesn't matter, saturattion 0% and 100% for white 0.1 makes it transparent*/
+    backdrop-filter: blur(2rem);
+
+}
+
+@media (max-width: 35rem) {
+    .nav-bar {
+        --gap: 3rem;
+        flex-direction: column; /* Stacks onj top of each other in media range */
+        inset: 0 0 0 110px; /*Logical property short hand for margin top, bottom, left and right  */
+        padding: min(30vh, 10rem) 2rem; /* This min function will always choose the minimum value - view height is more than 10 rem, it will show 10rem and vice versa - more dynamic */
+        position: fixed; /* Fix nav bar when scrolling*/
+        z-index: 1000;
+    }
+
+    .mobile-nav-toggle {
+        background-color: black;
+        background-image: url(assets/images/hamburg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 0;
+        display: block;
+        width: 1rem;
+        height: 1rem; 
+        padding-bottom: 20px;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 9999;
+
+    }
+}
+
+
+.nav-bar a {
+    text-decoration: none;
+}
+
+.nav-bar a > span {
+    font-weight: 16px;
+    margin-right: .5em;
+}
+
+/* .underline-indicators > * {
+    cursor: pointer;
+    padding: var(--underline-gap, 1rem) 0;
+    border: 0;
+    border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+    border-color: hsl( var(--clr-white) / .5);
+}
+
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+    color: hsl( var(--clr-white) / 1);
+    border-color: hsl( var(--clr-white) / 1); 
+} */
+
+/* Page specific background images*/
 
 /* Grid container for every page */
 
@@ -227,47 +319,6 @@ body {
     max-height: 100%;
     padding-bottom: 50px;
 }
-
-/* Components - call to actions's */
-
-.rounded-button {
-    border: none;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
-    display: inline-grid;
-    margin-bottom: 50px;
-    padding: 0 2em;
-    place-items: center;    
-    position: relative;
-    text-decoration: none;
-    z-index: 1; /* will be positioned in front */
-
-    
-}
-
-.rounded-button::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background: hsl( var(--clr-white) / .1);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 500ms linear, transform 750ms ease-in-out;
-}
- 
-.rounded-button:hover::after,
-.rounded-button:focus::after {
-    opacity: 1;
-    transform: scale(1.5);
-}
-
-
-/* Page specific background images*/
-
-
 
 body {
     background-position: bottom center;
