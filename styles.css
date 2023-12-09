@@ -1,14 +1,100 @@
-h1 {
-    color: red;
+/* Utility classes */
+
+/* Font styles */
+
+@font-face {
+    font-family: "Retroica";
+    src: url(assets/fonts/Retroica.ttf) format("truetype");
 }
 
+.ff-Retroica {
+    font-family: 'Retroica';
+}
+
+@font-face {
+    font-family: "Comfortaa-Regular";
+    src: url(assets/fonts/Comfortaa-Regular.ttf) format("truetype");
+}
+
+.ff-Comfortaa-Regular {
+    font-family: 'Comfortaa-Regular', sans-serif; 
+}
+
+@font-face {
+    font-family: "Comfortaa-Bold";
+    src: url(assets/fonts/Comfortaa-Bold.ttf) format("truetype");
+}
+
+.ff-Comfortaa-Bold {
+    font-family: 'Comfortaa-Bold', sans-serif; 
+}
+
+@font-face {
+    font-family: "Retronoid";
+    src: url(assets/fonts/Retronoid.otf) format("opentypefont");
+}
+
+.ff-Retronoid{
+    font-family: 'Retronoid', sans-serif; 
+}
+
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-22 {
+    font-size: 22px; 
+}
+
+.fs-48 {
+    font-size: 48px;
+}
+
+.letter-spacing-1 {
+    letter-spacing: 2px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-accent {
+    display: block;
+    font-weight: 700px;
+}
+
+/* Colours */
+
+.text-white {
+    color: white; 
+}
+
+.text-dark {
+    color: black;
+}
+
+
+/* Hover features */
+
+.underline-indicators > :active,
+.underline-indicators {
+    color: antiquewhite;
+    text-decoration: underline;
+    
+}
+
+/* Body settings */
+
 body {
-    background-image: url("assets/backg.jpg");
+    background-color: black;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0%;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    min-height: 100vh;
+    padding: 0%;
     
 }
 
@@ -17,11 +103,18 @@ body {
     gap: var(--gap, 2rem);
 } /* Align items horizontally*/
 
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
 /* */
+
+
 /* Primary Header */
 
 .logo img {
-  margin: 2rem; /* Margin around the logo */
+  margin: 1rem; /* Margin around the logo */
   max-width: 50px; /* Property sets the maxium width of the image to 50 px's - original image is much larger */
   height: auto /* This property makes sure the height of the image adjusts automatically to stop it from looking distorted when re-sizing */
   ;
@@ -48,11 +141,14 @@ body {
 
 }
 
-/* This reinenforces that any changes or adds to teh code will still remain hidden to a screen reader*/
+
+/* Accessibility*/
+
 .nav-bar a > [aria-hidden="true"] {
     font-weight: 700;
     margin-inline-end: 0.5rem; /* Logical property left and right - if the lingual direction changes it goes in the right direction */
 }
+
 
 /* Styles are applied when view point width is 35rem or narrower - style for small screen i.e. mobile */
 /* rem is root em - one rem is equivolent to teh default font size usually 16px */
@@ -67,3 +163,80 @@ body {
         
     }
 }
+
+
+/* Components - call to actions's */
+
+.rounded-button {
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    display: inline-grid;
+    margin: 0%;
+    padding: 0 2em;
+    place-items: center;    
+    position: relative;
+    text-decoration: none;
+    z-index: 1; /* will be positioned in front */
+
+    
+}
+
+.rounded-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: hsl( var(--clr-white) / .1);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+ 
+.rounded-button:hover::after,
+.rounded-button:focus::after {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+.grid-item {
+    grid-column: span 1;
+}
+
+
+.grid-item span.text-accent {
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.grid-container {
+    outline: 5px solid green;
+    display: grid;
+    
+}
+
+@media (min-width: 45rem) {
+    .grid-container{
+        column-gap: var(--container-gap, 2rem);
+        grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(2rem, 40rem)) minmax(2rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
+    
+    }
+
+    .grid-container > *:first-child {
+    grid-column: 2;
+    outline: 1px solid red;
+
+    }
+
+    .grid-container > *:last-child {
+    grid-column: 3;
+    outline: 1px solid yellow;
+    
+    }
+
+}
+
+
