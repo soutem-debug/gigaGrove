@@ -174,7 +174,7 @@ body {
 @media (min-width: 45rem) {
     .grid-container{
         column-gap: var(--container-gap, 1rem);
-        grid-template-columns: minmax(6rem, 1fr) repeat(2,minmax(8rem, 40rem)) minmax(6rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
+        grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(4rem, 40rem)) minmax(2rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
         text-align: center;
         
     }
@@ -193,7 +193,7 @@ body {
 
     .home .grid-container {
         align-items: end;
-        padding-bottom: 20rem;
+        padding-bottom: 10rem;
 
     }
 
