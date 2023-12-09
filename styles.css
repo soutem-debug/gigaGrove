@@ -107,7 +107,8 @@ body {
     display: grid;
     grid-template-rows: min-content 1fr;
     min-height: 100vh;
-    padding: 0%;
+    padding: 0;
+    overflow: hidden;
     
 }
 
@@ -121,7 +122,44 @@ body {
     gap: var(--gap, 1rem);
 }
 
+.grid-item {
+    grid-column: span 1;
+}
 
+
+.grid-item span.text-accent {
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.grid-container {
+    /* outline: 5px solid green; */
+    display: grid;
+    text-align: center;
+    overflow: hidden;
+    padding: 0 1rem;
+    place-items: center;
+    
+}
+
+.grid-container * {
+    max-width: 50ch;
+}
+
+.grid-item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding-bottom: 50px;
+}
+
+body {
+    background-position: bottom center;
+    background-size: cover;
+    
+}
 
 /* Links */
 .nav-bar a {
@@ -136,8 +174,9 @@ body {
 @media (min-width: 45rem) {
     .grid-container{
         column-gap: var(--container-gap, 1rem);
-        grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(2rem, 40rem)) minmax(2rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
+        grid-template-columns: minmax(6rem, 1fr) repeat(2,minmax(8rem, 40rem)) minmax(6rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
         text-align: center;
+        
     }
 
     .grid-container > *:first-child {
@@ -154,7 +193,7 @@ body {
 
     .home .grid-container {
         align-items: end;
-        padding-bottom: 4rem;
+        padding-bottom: 20rem;
 
     }
 
@@ -200,7 +239,7 @@ body {
 /* Primary Header */
 
 .logo img {
-    margin: 0.5rem; /* Margin around the logo */
+    margin: 2rem; /* Margin around the logo */
     max-width: 50px; /* Property sets the maxium width of the image to 50 px's - original image is much larger */
     height: auto;
   }
@@ -233,18 +272,29 @@ body {
         inset: 0 0 0 110px; /*Logical property short hand for margin top, bottom, left and right  */
         padding: min(30vh, 10rem) 2rem; /* This min function will always choose the minimum value - view height is more than 10 rem, it will show 10rem and vice versa - more dynamic */
         position: fixed; /* Fix nav bar when scrolling*/
+
+        transform: translateX(0%);
+        transition: transform 350ms ease-in-out;
+
         z-index: 1000;
     }
 
+    .nav-bar[data-visible="true"] {
+
+        transform: translateX(100%);
+        transition: transform 350ms ease-in-out;
+    }
+
+
     .mobile-nav-toggle {
-        background-color: black;
+        background-color: transparent;
         background-image: url(assets/images/hamburg.png);
         background-repeat: no-repeat;
         background-size: cover;
         border: 0;
         display: block;
-        width: 1rem;
-        height: 1rem; 
+        width: 2rem;
+        height: 2rem; 
         padding-bottom: 20px;
         position: absolute;
         top: 2rem;
@@ -252,6 +302,21 @@ body {
         z-index: 9999;
 
     }
+}
+
+@media (min-width: 35em) and (max-width: 55em) {
+    .nav-bar a > span[aria-hidden] {
+         display: none;
+    }
+
+}
+
+@media (min-width: 35em){
+    .nav-bar {
+        padding-block: 2rem;
+        padding-inline: clamp(3rem, 10vh, 10rem);
+    }
+
 }
 
 
@@ -287,49 +352,12 @@ body {
 /* Grid container for every page */
 
 
-.grid-item {
-    grid-column: span 1;
-}
 
-
-.grid-item span.text-accent {
-    margin-bottom: 10px;
-    margin-top: 10px;
-
-}
-
-.grid-container {
-    outline: 5px solid green;
-    display: grid;
-    text-align: center;
-    padding: 0 1rem;
-    place-items: center;
-    
-    
-}
-
-.grid-container * {
-    max-width: 50ch;
-}
-
-.grid-item img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    max-height: 100%;
-    padding-bottom: 50px;
-}
-
-body {
-    background-position: bottom center;
-    background-size: cover
-}
 
 /* Home Page */
 
 .home {
     background-image: url(assets/images/background-mobile.png);
-    ;
 }
 
 @media (min-width: 35rem) {
