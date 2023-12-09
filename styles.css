@@ -150,8 +150,9 @@ body {
 }
 
 
-/* Styles are applied when view point width is 35rem or narrower - style for small screen i.e. mobile */
-/* rem is root em - one rem is equivolent to teh default font size usually 16px */
+/* Responsive design for tablet and mobile*/
+
+
 @media (max-width: 35rem) {
     .nav-bar {
         --gap: 3rem;
@@ -160,10 +161,73 @@ body {
         padding: min(30vh, 10rem) 2rem; /* This min function will always choose the minimum value - view height is more than 10 rem, it will show 10rem and vice versa - more dynamic */
         position: fixed; /* Fix nav bar when scrolling*/
         
-        
     }
 }
 
+@media (min-width: 45rem) {
+    .grid-container{
+        column-gap: var(--container-gap, 1rem);
+        grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(2rem, 40rem)) minmax(2rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
+        text-align: center;
+    }
+
+    .grid-container > *:first-child {
+    grid-column: 2;
+    /* outline: 1px solid red; */
+
+    }
+
+    .grid-container > *:last-child {
+    grid-column: 3;
+    /* outline: 1px solid yellow; */
+    
+    }
+
+    .home .grid-container {
+        align-items: end;
+        padding-bottom: 4rem;
+
+    }
+
+}
+
+
+
+/* Grid container for every page */
+
+
+.grid-item {
+    grid-column: span 1;
+}
+
+
+.grid-item span.text-accent {
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.grid-container {
+    outline: 5px solid green;
+    display: grid;
+    text-align: center;
+    padding: 0 1rem;
+    place-items: center;
+    
+    
+}
+
+.grid-container * {
+    max-width: 50ch;
+}
+
+.grid-item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding-bottom: 50px;
+}
 
 /* Components - call to actions's */
 
@@ -173,7 +237,7 @@ body {
     background-color: white;
     cursor: pointer;
     display: inline-grid;
-    margin: 0%;
+    margin-bottom: 50px;
     padding: 0 2em;
     place-items: center;    
     position: relative;
@@ -201,42 +265,13 @@ body {
     transform: scale(1.5);
 }
 
-.grid-item {
-    grid-column: span 1;
-}
+
+/* Page specific items */
+
+/* Home Page */
 
 
-.grid-item span.text-accent {
-    margin-bottom: 10px;
-    margin-top: 10px;
 
-}
 
-.grid-container {
-    outline: 5px solid green;
-    display: grid;
-    
-}
-
-@media (min-width: 45rem) {
-    .grid-container{
-        column-gap: var(--container-gap, 2rem);
-        grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(2rem, 40rem)) minmax(2rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
-    
-    }
-
-    .grid-container > *:first-child {
-    grid-column: 2;
-    outline: 1px solid red;
-
-    }
-
-    .grid-container > *:last-child {
-    grid-column: 3;
-    outline: 1px solid yellow;
-    
-    }
-
-}
 
 
