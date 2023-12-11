@@ -73,7 +73,6 @@
 
 /* Colours */
 
-/* colors */
 
 .bg-dark { background-color: hsl( var(--clr-dark) );}
 .bg-accent { background-color: hsl( var(--clr-light) );}
@@ -171,10 +170,11 @@ body {
 /* Responsive design for tablet and mobile*/
 
 
-@media (min-width: 45rem) {
+@media (min-width: 48rem) {
     .grid-container{
         column-gap: var(--container-gap, 1rem);
         grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(4rem, 40rem)) minmax(2rem, 1fr); /*minmax added for 2 columns to keep it repsosive and not make the content bleed out to the sides*/
+        padding-bottom: 10px;
         text-align: center;
         
     }
@@ -347,10 +347,7 @@ body {
     border-color: hsl( var(--clr-white) / 1); 
 } */
 
-/* Page specific background images*/
-
-/* Grid container for every page */
-
+/* Page specific*/
 
 
 
@@ -373,3 +370,83 @@ body {
     }
 
 }
+
+
+/* Contacts */
+
+@media (min-width: 48rem) {
+    .grid-container-contacts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(2rem, 1fr));
+        outline: 5px solid red;
+        padding: 0 1rem;
+        place-items: center;
+    }
+}
+
+.grid-item-contacts {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-column: span 3;
+    justify-content: flex-start;
+    height: 100vh;
+    
+}
+
+.grid-item-contacts h1 {
+    margin: 0; 
+    padding-bottom: 4rem;
+}
+
+
+/* HOT page  */
+
+.game {
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+@media (min-width: 48rem) {
+    .grid-container-game {
+        display: grid;
+        grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(4rem, 40rem)) minmax(2rem, 1fr); 
+        padding-bottom: 2rem; 
+        
+    }
+
+    .grid-container-game > *:first-child {
+    grid-column: 2;
+    outline: 1px solid red;
+
+    }
+
+    .grid-container-game > *:last-child {
+    grid-column: 3;
+    outline: 1px solid yellow;
+    
+    }
+    
+    .game .grid-container-game {
+        padding-bottom: 20rem;
+
+    }
+} 
+  
+  .dice {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    
+  
+  }
+
+.img {
+    max-width: 80%;
+  }

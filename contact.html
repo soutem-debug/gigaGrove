@@ -32,12 +32,12 @@
                     <span aria-hidden="true">00</span>About
                 </a></li>
             <li>
-                <a class="ff-Retroica uppercase text-white letter-spacing-1" href="dicee.html">
-                <span aria-hidden="true">01</span>Dicee Game
+                <a class="ff-Retroica uppercase text-white letter-spacing-1" href="HOT.html">
+                <span aria-hidden="true">01</span>H&T
             </a></li>
             <li>
                 <a class="ff-Retroica uppercase text-white letter-spacing-1" href="contact.html">
-                <span aria-hidden="true">02</span>Sign up! 
+                <span aria-hidden="true">02</span>Contact us! 
             </a></li>
         </ul>
     </nav>
@@ -48,21 +48,44 @@
 
 <body class="home">
     
-    <div class="grid-container">
-        <div class="grid-item">
-        <h1 class="text-white fs-22 ff-Comfortaa-Regular letter-spacing-1">Do you remember the
-            <span class="text-accent text-white fs-48 ff-Comfortaa-Bold">Love Calculator</span>
-        </h1>
+    <div class="grid-container-contacts">
+        <div class="grid-item-contacts">
+            <h1 class="text-white fs-48 ff-Comfortaa-Regular letter-spacing-1">Get in touch</h1>
+        
+            <form method="POST" class="contact-page"  name="contact-form" onSubmit="return validateForm()">
+
+                <label class="text-white fs-22 ff-Comfortaa-Regular letter-spacing-1" for="first-name">First Name:</label>
+                  <input type="text" class="first-name" name="required-field"><br><br>
+                  
+                  
+                  <label class="text-white fs-22 ff-Comfortaa-Regular letter-spacing-1" for="surname">Surname:</label>
+                  <input type="text" class="surname" name="required-field"><br><br>
+                  
+                  <label class="text-white fs-22 ff-Comfortaa-Regular letter-spacing-1" for="inputEmail">Email:</label>
+                  <input type="email" class="email" name="email"><br><br>
+                  
+                  <label class="text-white fs-22 ff-Comfortaa-Regular letter-spacing-1" for="message">Message:</label><br>
+                  <textarea class="message" name="message" rows="4" cols="50"></textarea><br><br>
+                  
+                  <label class="text-white fs-16 ff-Comfortaa-Regular letter-spacing-1" for="terms">I accept the <a href="#">terms and conditions</a>:</label>
+                  <input type="checkbox" class="terms" name="terms" required><br><br>
+                  
+                  <input type="submit" name="submit" class="contact-btn">
+                  
+                  </form>
+            
+                    </div>
+                </div>
+            </div>
       
 
         
     </div>
-    <div class="grid-item">
-
-    </div>
+    
 </div>
 
     
     <script src="nav.js"></script>
+    <script src="contact.js"></script>
 </body>
 </html>
