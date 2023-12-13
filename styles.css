@@ -134,7 +134,7 @@ body {
     grid-template-rows: min-content 1fr;
     min-height: 100vh;
     padding: 0;
-    overflow: hidden;
+    overflow: scroll;
     
 }
 
@@ -360,7 +360,10 @@ body {
 
 .contacts {
     background-image: url("assets/images/contacts.png");
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -378,7 +381,6 @@ body {
     flex-direction: column;
     grid-column: span 3;
     justify-content: flex-start;
-    height: 100vh;
 }
     
 .grid-item-contacts h1 {
