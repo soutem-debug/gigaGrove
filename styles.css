@@ -1,13 +1,6 @@
-/* Custome colours */
-:root {
-    --clr-dark: 230 35% 7%;
-    --clr-light: 231 77% 90%;
-    --clr-white: 0 0% 100%;
-}
-
 /* Utility classes */
 
-/* Font styles */
+/* Fonts */
 
 @font-face {
     font-family: "Retroica";
@@ -68,20 +61,19 @@
 
 .text-accent {
     display: block;
-    font-weight: 700px;
 }
 
 /* Colours */
 
+.text-white {
+    color: azure;
+}
 
-.bg-dark { background-color: hsl( var(--clr-dark) );}
-.bg-accent { background-color: hsl( var(--clr-light) );}
-.bg-white { background-color: hsl( var(--clr-white) );}
+.text-dark {
+    color: black;
+}
 
-.text-dark { color: hsl( var(--clr-dark) );}
-.text-accent { color: hsl( var(--clr-light) );}
-.text-white { color: hsl( var(--clr-white) );}
-
+/* Acessibility */
 
 .sr-only {
     position: absolute; 
@@ -95,12 +87,9 @@
   }
 
 
-
-
 /* Body settings */
 
 body {
-    
     background-position: center;
     background-repeat: no-repeat;
     display: grid;
@@ -114,16 +103,16 @@ body {
 .flex {
     display: flex;
     gap: var(--gap, 2rem);
-} /* Align items horizontally*/
+} 
 
-.grid {
+/* .grid {
     display: grid;
     gap: var(--gap, 1rem);
 }
 
 .grid-item {
     grid-column: span 1;
-}
+}  */
 
 
 .grid-item span.text-accent {
@@ -133,7 +122,6 @@ body {
 }
 
 .grid-container {
-    /* outline: 5px solid green; */
     display: grid;
     text-align: center;
     overflow: hidden;
@@ -157,15 +145,13 @@ body {
 body {
     background-position: bottom center;
     background-size: cover;
-    
-}
+} 
 
 /* Links */
 .nav-bar a {
     text-decoration: none;
 
 }
-
 
 /* Responsive design for tablet and mobile*/
 
@@ -193,12 +179,11 @@ body {
 
     .home .grid-container {
         align-items: end;
-        padding-bottom: 10rem;
+        padding-bottom: 8rem;
 
     }
 
 }
-
 
 /* Components - call to actions's */
 
@@ -213,37 +198,16 @@ body {
     place-items: center;    
     position: relative;
     text-decoration: none;
-    z-index: 1; /* will be positioned in front */
+    z-index: 1; 
     
 }
-
-/* .rounded-button::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background: hsl( var(--clr-white) / .15);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 500ms linear, transform 750ms ease-in-out;
-    
-}
- 
-.rounded-button:hover::after,
-.rounded-button:focus::after {
-    opacity: 1;
-    transform: scale(1.5);
-} */
 
 /* Primary Header */
 
 .logo img {
-    margin: 2rem; /* Margin around the logo */
-    max-width: 50px; /* Property sets the maxium width of the image to 50 px's - original image is much larger */
-    height: auto;
+    margin: 2rem;
+    max-width: 50px; 
   }
-  
   
   
 .primary-header {
@@ -256,22 +220,23 @@ body {
 }
 
 .nav-bar {
-    list-style-type: none; /* Default reset*/
+    list-style-type: none; 
     margin: 0;
     padding: 0;
-
-    background: hsl(0 0% 100% / 0.075);/* HSL representation: hsl(hue, saturation, lightness) first digit is color 0 because doesn't matter, saturattion 0% and 100% for white 0.1 makes it transparent*/
+    background: hsl(0 0% 100% / 0.075);
     backdrop-filter: blur(2rem);
 
 }
 
+/* Responsive nav bar */
+
 @media (max-width: 35rem) {
     .nav-bar {
         --gap: 3rem;
-        flex-direction: column; /* Stacks onj top of each other in media range */
-        inset: 0 0 0 110px; /*Logical property short hand for margin top, bottom, left and right  */
-        padding: min(30vh, 10rem) 2rem; /* This min function will always choose the minimum value - view height is more than 10 rem, it will show 10rem and vice versa - more dynamic */
-        position: fixed; /* Fix nav bar when scrolling*/
+        flex-direction: column; 
+        inset: 0 0 0 110px; 
+        padding: min(30vh, 10rem) 2rem; 
+        position: fixed; 
 
         transform: translateX(0%);
         transition: transform 350ms ease-in-out;
@@ -319,7 +284,6 @@ body {
 
 }
 
-
 .nav-bar a {
     text-decoration: none;
 }
@@ -329,27 +293,8 @@ body {
     margin-right: .5em;
 }
 
-/* .underline-indicators > * {
-    cursor: pointer;
-    padding: var(--underline-gap, 1rem) 0;
-    border: 0;
-    border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
-}
-
-.underline-indicators > *:hover,
-.underline-indicators > *:focus {
-    border-color: hsl( var(--clr-white) / .5);
-}
-
-.underline-indicators > .active,
-.underline-indicators > [aria-selected="true"] {
-    color: hsl( var(--clr-white) / 1);
-    border-color: hsl( var(--clr-white) / 1); 
-} */
 
 /* Page specific*/
-
-
 
 /* Home Page */
 
@@ -378,7 +323,6 @@ body {
     .grid-container-contacts {
         display: grid;
         grid-template-columns: repeat(3, minmax(2rem, 1fr));
-        outline: 5px solid red;
         padding: 0 1rem;
         place-items: center;
     }
@@ -399,11 +343,10 @@ body {
     padding-bottom: 4rem;
 }
 
-
-/* HOT page  */
+/* Game Page  */
 
 .game {
-    background-color: black;
+    background-image: url("assets/images/dice-desktop.png");
 }
 
 h1 {
@@ -421,13 +364,10 @@ h1 {
 
     .grid-container-game > *:first-child {
     grid-column: 2;
-    outline: 1px solid red;
-
     }
 
     .grid-container-game > *:last-child {
     grid-column: 3;
-    outline: 1px solid yellow;
     
     }
     
@@ -443,7 +383,6 @@ h1 {
     flex-direction: column;
     text-align: center;
     padding: 10px;
-    
   
   }
 
