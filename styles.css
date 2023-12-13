@@ -316,16 +316,20 @@ body {
 
 }
 
-
 /* Contacts */
 
-@media (min-width: 48rem) {
-    .grid-container-contacts {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(2rem, 1fr));
-        padding: 0 1rem;
-        place-items: center;
-    }
+.contacts {
+    background-image: url("assets/images/contacts.png");
+    background-size: cover;
+    margin: 0;
+}
+
+
+.grid-container-contacts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(2rem, 1fr));
+    padding: 0 1rem;
+    place-items: center;
 }
 
 .grid-item-contacts {
@@ -335,12 +339,39 @@ body {
     grid-column: span 3;
     justify-content: flex-start;
     height: 100vh;
-    
 }
-
+    
 .grid-item-contacts h1 {
     margin: 0; 
     padding-bottom: 4rem;
+}
+
+.contact-page label,
+.contact-page input,
+.contact-page textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    width: calc(100% - 1rem);
+}
+
+.contact-page label a {
+    color: cadetblue;
+}
+
+
+.contact-btn {
+    background-color: black;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer ;
+    font-size: 32px;
+    padding: 10px, 15px;
+}
+
+.contact-btn:hover {
+    background-color: chocolate;
 }
 
 /* Game Page  */
