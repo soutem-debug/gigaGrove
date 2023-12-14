@@ -243,8 +243,8 @@ body {
   
   
 .primary-header {
-    align-items: center;  /* Aligns the items centre of logo */
-    justify-content: space-between;  /* Moves to the right side */
+    align-items: center;  
+    justify-content: space-between;  
 }
 
 .mobile-nav-toggle{
@@ -324,7 +324,6 @@ body {
     font-weight: 16px;
     margin-right: .5em;
 }
-
 
 /* Page specific*/
 
